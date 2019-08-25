@@ -21,8 +21,10 @@ RSpec.describe "Gorg" do
     vim.feedkeys 'zz'
     vim.feedkeys 'zz'
 
-    # then
+    # wait until background writes are finished
     sleep(1.0/10)
+
+    # then
     expect(done_file_contents).to eq("Line 2\nLine 1\n")
   end
 
