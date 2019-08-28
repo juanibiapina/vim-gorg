@@ -3,7 +3,6 @@ if exists("g:loaded_gorg") || &cp
 endif
 let g:loaded_gorg = 1
 
-nnoremap <Plug>GorgOpenIndex :edit index.md<CR>
 nnoremap <Plug>GorgMoveDone :call <SID>move_to_done()<CR>
 
 " Move current line to done file for current day
