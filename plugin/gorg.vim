@@ -17,3 +17,5 @@ function! s:move_to_done()
 
   call deletebufline(bufname("%"), line("."))
 endfunction
+
+command! -nargs=1 -bar GorgOpenFile edit <args>
