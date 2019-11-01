@@ -29,6 +29,22 @@ RSpec.describe "Gorg" do
     expect(filename).to eq('file.md')
   end
 
+  it "exposes a Plug mapping for opening a link (not an actual markdown link)" do
+    # given
+    vim.command 'nmap zz <Plug>GorgOpenFileForCurrentLine'
+    vim.command 'set hidden'
+    vim.insert '- The Target'
+    vim.normal
+    vim.feedkeys 'gg'
+
+    # when
+    vim.feedkeys 'zz'
+
+    # then
+    filename = vim.command 'echo @%'
+    expect(filename).to eq('The Target.md')
+  end
+
   def done_file_contents
     File.read("done/#{Date.today.iso8601}.md")
   end
